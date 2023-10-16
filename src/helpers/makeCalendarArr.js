@@ -22,7 +22,7 @@ export function makeCalendarArr(startIdx, lastDay, date) {
       calendarArr.push({
         day: leadingDay,
         month: prevMonth,
-        year: +date.year,
+        year: +date.month == 1 ? +date.year - 1 : +date.year,
       });
       leadingDay++;
     } else if (currentDay > lastDay) {
@@ -36,7 +36,7 @@ export function makeCalendarArr(startIdx, lastDay, date) {
       calendarArr.push({
         day: currentDay,
         month: prevMonth == 12 ? 1 : prevMonth + 1,
-        year: date.month == 1 ? +date.year - 1 : +date.year,
+        year: +date.year,
       });
     }
   }
