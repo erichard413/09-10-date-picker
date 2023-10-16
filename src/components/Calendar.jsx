@@ -24,6 +24,11 @@ export function Calendar({ setSelectedDate, selectedDate }) {
     setDayData(makeCalendarArr(startIdx, lastDay, month));
   }, [month]);
 
+  useEffect(() => {
+    if (selectedDate.month != month)
+      setMonth({ month: selectedDate.month, year: selectedDate.year });
+  }, [selectedDate]);
+
   if (!dayData) return <h1>Loading..</h1>;
 
   return (
